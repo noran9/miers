@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Microscopic Images Editor and Resolution Stimulator</title>
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="..//node_modules/croppr/src/css/croppr.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  </head>
+  <body class="bg-dark text-center">
+    <div class="container text-light">
+      <h5 id="title" class="font-weight-bold">Welcome to MIЕRS</h5>
+      <button id="browseButton" class="btn btn-info">Upload Image</button>
+      
+      <div class="container" id="editor" hidden="true">
+        <canvas class="border border-dark" id="canvas" width="210" height="210" hidden="true"></canvas>
+        <img src="" id="edit-image"/>
+        <img src="" id="cropped-result"/>
+        <div id="cropButtonContainer">
+          <br>
+          <button id="cropButton" class="btn btn-info">Crop Image</button>
+        </div>
+        <div>
+          <i class="fa fa-spinner fa-spin" hidden="true" id="loading-gif" style="font-size:24px"></i>
+        </div>
+      </div>
+      <br>
+      <div class="container bg-dark text-light flex" id="filters" hidden="true">
+        <br>
+        <button id="editButton" class="btn btn-info">Edit Image</button>
+        <div class="row" disabled="true">
+          <div class="col-md-6">
+            <label for="brightness">Brightness</label>
+            <input type="range" disabled="true" class="custom-range" id="brightness" min="50" max="150" value="100">
+          </div>
+          <div class="col-md-6">
+            <label for="contrast">Contrast</label>
+            <input type="range" disabled="true" class="custom-range" id="contrast" min="50" max="150" value="100">
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <label for="saturation">Saturation</label>
+            <input type="range" disabled="true" class="custom-range" id="saturation" min="0" max="400" value="100">
+          </div>
+          <div class="col-md-6">
+            <label for="invert">Invert</label>
+            <input type="range" disabled="true" class="custom-range" id="invert" min="0" max="100" value="0">
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+              <button id='superResolution' class='btn btn-info'>Apply Super Resolution</button>
+          </div>
+          <div class="col-md-6">
+              <button id='saveButton' class="btn btn-info">Save image</button>
+          </div>
+        </div>
+        <br>
+      </div>
+    </div>
+  </body>
+
+  <script src="renderer.js"></script>
+</html>

@@ -1,0 +1,29 @@
+{
+  "name": "miers",
+  "version": "1.0.0",
+  "description": "Microscopic Images Editor and Resolution Stimulator",
+  "main": "main.js",
+  "scripts": {
+    "development": "@powershell -Command \"(gc misc\\runInference.cmd) -replace 'resources.', '' | Out-File -encoding ASCII misc\\runInference.cmd\"",
+    "start": "npm run development && electron .",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dist": "electron-builder"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "electron": "^9.0.5",
+    "electron-builder": "^22.7.0"
+  },
+  "dependencies": {
+    "croppr": "^2.3.1"
+  },
+  "build":{
+    "appId": "noran9.miers",
+    "win":{
+      "target": "nsis",
+      "icon": "build/icon.ico"
+    },
+    "extraResources": ["./misc/**"]
+  }
+}
