@@ -21,9 +21,6 @@ function createWindow () {
   win.loadFile('app/index.html')
 
   win.removeMenu();
-
-  // Open the DevTools.
-  win.webContents.openDevTools()
 }
 
 // This method will be called when Electron has finished
@@ -35,7 +32,7 @@ app.whenReady().then(createWindow)
 // for applications and their menu bar to stay active until the user quits
 // explicitly with Cmd + Q.
 app.on('window-all-closed', () => {
-  var path = 'extra-resources/images/cropped-image.png';
+  var path = 'misc/images/cropped-image.png';
 
   if(fs.existsSync(path)){
     fs.unlink(path, (err) => {
